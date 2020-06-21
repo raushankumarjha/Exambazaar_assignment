@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import '../styles/landingpage.css';
 import image from '../Images/img.png';
-import QuestionPagePaper from './QuestionPagePaper';
-import ReactDOM from "react-dom";
+//import QuestionPagePaper from './QuestionPagePaper';
+//import ReactDOM from "react-dom";
 
 export default class LandingPage extends Component {
  
@@ -13,14 +13,15 @@ export default class LandingPage extends Component {
            streamList:[],
 
        };
-       this.handleSubmit = this.handleSubmit.bind(this);
+       /*this.handleSubmit = this.handleSubmit.bind(this);*/
 
    }
-    handleSubmit(event)
+    /*handleSubmit(event)
     {
         <QuestionPagePaper/>
 
     }
+    */
  
    componentDidMount(){
        fetch('https://www.exambazaar.com/api/coding-round/routes/exam-info/8294029370 ')
@@ -40,7 +41,6 @@ export default class LandingPage extends Component {
        if(this.state.examlist !== [] && this.state.streamList !== []){
            const exams = this.state.examlist.map((exam)=><option value={exam.name}>{exam.name}</option>);
            const streams = this.state.streamList.map((stream)=><option value={stream.name}>{stream.name}</option>);
-            // <QuestionPagePaper/>
            return (
                <div>
                    <nav>
@@ -56,11 +56,10 @@ export default class LandingPage extends Component {
                                <li><select name="streams">
                                        {streams}
                                    </select></li>
-                               <li><a href="#">Contact</a></li>
+                               <li><a className="active" href="#">Contact</a></li>
 
 
                            </ul>
-                           <button type="submit">Search</button>
                    </nav>
                    <section>
                        <img src={image} className="background" alt="background" />
